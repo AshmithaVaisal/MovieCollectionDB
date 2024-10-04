@@ -1,0 +1,9 @@
+.card-container{
+    /* background-color:grey; */
+    width: auto;
+    height: 100vh;
+}
+
+.card-container h2{
+    margin: 2rem;
+}

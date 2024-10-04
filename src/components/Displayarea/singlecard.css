@@ -1,0 +1,12 @@
+.single-card-container {
+    background-color:cornsilk;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 16rem;
+    height:20rem;
+    border-radius: 1rem;
+    padding:1rem;
+    margin: 2rem;
+
+}
