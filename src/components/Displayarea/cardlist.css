@@ -1,9 +1,14 @@
 .card-container{
-    /* background-color:grey; */
-    width: auto;
-    height: 100vh;
+    margin: 1rem;
+    /* background-color: blue; */
+    display: flex;
+    overflow:scroll;
+    scrollbar-width: none;
+    
+    
 }
 
-.card-container h2{
-    margin: 2rem;
+.card-general-title{
+    margin: 1rem;
+    padding: 0.5rem;
 }

@@ -1,12 +1,19 @@
-.single-card-container {
-    background-color:cornsilk;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 16rem;
-    height:20rem;
-    border-radius: 1rem;
-    padding:1rem;
-    margin: 2rem;
+.single-card-container{
+    width:30rem;
+    height:auto;
+    padding:0.25rem;
+    /* background-color: aquamarine; */
+    margin: 0.5px;
+}
 
+.single-card-container img{
+    width: 200px;
+    height: 300px;
+    border-radius: 1.5rem;
+}
+
+.single-card-container h6{
+    margin: 0.5rem;
+    padding: 0.25rem;
+    font-weight:400;
 }

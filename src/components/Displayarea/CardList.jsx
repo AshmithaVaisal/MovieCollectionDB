@@ -8,25 +8,30 @@ import axios from 'axios';
 const CardList = () => {
 
     const [movies,setMovieData]= useState([]);
-
-    const getMovieListData = async() => {
-    const {moviedata} =  await axios.get(MOVIE_LIST_ENDPOINT,{
-        headers:{
-            Authorization:`Bearer ${AUTH_TOKEN}`
+    const getMovieListData = async()=>{
+        try{
+            const movieResponse = await axios.get(MOVIE_LIST_ENDPOINT,{
+                headers:{
+                    Authorization: `Bearer ${AUTH_TOKEN}`
+                }
+            })
+            setMovieData(movieResponse.data.results)
+        } catch(error){
+            console.log("Error fetching movie data",(error));          
         }
-    })
-    setMovieData(moviedata)
     }
     useEffect(()=>{
         getMovieListData()
     },[])
 
     return(
-        <>
-            <div className="card-container">
-                <h2 className="card-general-title">Top rated movies</h2>
-                <SingleCard/>
-            </div>
+        <>          
+            <h3 className="card-general-title">Top rated movies</h3>
+            <div className='card-container'>
+                {movies.map((movie)=>(
+                    <SingleCard key={movie.id} movie={movie}/>
+                ))}
+            </div>               
         </>
     )
 }
