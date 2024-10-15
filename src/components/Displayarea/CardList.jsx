@@ -26,7 +26,7 @@ const CardList = () => {
 
     return(
         <>          
-            <h3 className="card-general-title">Top rated movies</h3>
+            <h4 className="card-general-title">Top rated movies</h4>
             <div className='card-container'>
                 {movies.map((movie)=>(
                     <SingleCard key={movie.id} movie={movie}/>
