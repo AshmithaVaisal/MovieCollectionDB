@@ -8,6 +8,7 @@ import { Home } from './Pages/Home'
 import { MoviePage } from './Pages/Movie'
 import { TvPage } from './Pages/TV'
 import { SignInPage } from './Pages/SignIn'
+import { PeoplePage } from './Pages/People'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/movie' element={<MoviePage/>}/>
           <Route path='/tv' element={<TvPage/>}/>
+          <Route path='/people' element={<PeoplePage/>}/>
           <Route path='/signin' element={<SignInPage/>}/>
         </Routes>
       </BrowserRouter>

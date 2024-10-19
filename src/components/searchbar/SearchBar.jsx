@@ -5,7 +5,8 @@ import axios from 'axios'
 
 export const SearchBar = () => {
 
-    const [bannerImage,setBannerimage]=useState([])
+    const[bannerImage,setBannerimage]=useState([])
+    const[currentIndex,setCurrentIndex]=useState(0)
 
     const getBannerImageData = async() =>{
         try{
@@ -25,26 +26,24 @@ export const SearchBar = () => {
         getBannerImageData()
     },[]);
 
-    return (
-        <>
-            {/* <div className="search-container">
-                <h1>WELCOME TO FD</h1>
-                <h2>Explore more Movies,Tv shows and People!</h2>
-                <div className="search-wrapper">
-                    <input type="text" placeholder="Enter a movie name"/>
-                    <button >Search</button>
-                </div>                
-            </div> */}
+    useEffect(()=>{
+        const interval = setInterval(()=>{
+            setCurrentIndex((prevIndex)=>
+                prevIndex === bannerImage.length-1 ? 0 : prevIndex+1
+            )
+        },2000)
+        return ()=> clearInterval(interval)
+    },[bannerImage])
 
-            {/*only banner style */}
-            
+    return (
+        <>          
             <div className="banner-container">
                 {bannerImage.length > 0 ?(
                     bannerImage.slice(0,5).map((movie)=>(
                         <div key={movie.id} className="banner-slide">
-                            <img src={`http://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="{movie.title}" />                        
-                                <h1>Welcome to FD!</h1>
-                                <h2>Explore more Movies,Tv shows and People!</h2>
+                            <img src={`http://image.tmdb.org/t/p/original${bannerImage[currentIndex].backdrop_path}`} alt="{movie.title}" />                        
+                                <h1>"Hello, Film Lovers!</h1>
+                                <h2>Explore more Movies,Tv shows and your favourite People."</h2>
                                 <div className="search-wrapper">
                                     <input type="text" placeholder="Enter a movie name"/>
                                     <button >Search</button>
